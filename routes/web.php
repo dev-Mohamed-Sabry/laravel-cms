@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\DashboardController;
+use App\Http\Controllers\Auth\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,14 +18,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('website.blog.index');
-})->name('/');
+})->name('home');
 
 Route::get('/single', function () {
     return view('website.blog.single');
-})->name('blog/single');
+})->name('blog.single');
+
 Route::get('/admin/dashboard', [DashboardController::class, 'dashboard'])
-    ->name('admin/dashboard')->middleware('auth');
+    ->name('admin.dashboard')->middleware('auth');
 
 Auth::routes();
 
+Route::resource('auth/post', PostController::class);
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

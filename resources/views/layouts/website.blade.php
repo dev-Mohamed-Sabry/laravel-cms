@@ -42,7 +42,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg p-0">
-                        <a class="navbar-brand" href="{{ route('/') }}">
+                        <a class="navbar-brand" href="{{ route('home') }}">
                             <img src="{{ asset('assets/website/images/logo.png') }}" alt="Logo">
                         </a>
 
@@ -55,7 +55,7 @@
                         <div class="collapse navbar-collapse ms-auto" id="navbarsExample09">
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <li class="nav-item @@home">
-                                    <a class="nav-link" href="{{ route('/') }}">Home</a>
+                                    <a class="nav-link" href="{{ route('home') }}">Home</a>
                                 </li>
                                 <li class="nav-item dropdown @@portfolio">
                                     <a class="nav-link dropdown-toggle" href="#" id="dropdown03"
@@ -89,7 +89,7 @@
                                     <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdown05">
                                         <li><a class="dropdown-item activeGrid" href="blog-grid.html">Blog Grid</a></li>
                                         <li><a class="dropdown-item activeSingle"
-                                                href="{{ route('blog/single') }}">Blog
+                                                href="{{ route('blog.single') }}">Blog
                                                 Single</a></li>
                                         <li><a class="dropdown-item active" href="blog-right-sidebar.html">Blog Right
                                                 Sidebar</a></li>
