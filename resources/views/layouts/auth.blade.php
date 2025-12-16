@@ -54,7 +54,7 @@
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1 text-black">David Greymaax</p>
+                                <p class="mb-1 text-black">Admin</p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -80,7 +80,7 @@
                             <i class="mdi mdi-email-outline"></i>
                             <span class="count-symbol bg-warning"></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                        <div class="dropdown-menu dropdown-menu-end navbar-dropdown preview-list"
                             aria-labelledby="messageDropdown">
                             <h6 class="p-3 mb-0">Messages</h6>
                             <div class="dropdown-divider"></div>
@@ -133,7 +133,7 @@
                             <span class="count-symbol bg-danger"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                            aria-labelledby="notificationDropdown">
+                            aria-labelledby="notificationDropdown" style="left: -9.5rem">
                             <h6 class="p-3 mb-0">Notifications</h6>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">

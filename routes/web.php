@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +22,8 @@ Route::get('/', function () {
 Route::get('/single', function () {
     return view('website.blog.single');
 })->name('blog/single');
-Route::get('/admin/dashboard', function () {
-    return view('auth.dashboard');
-})->name('admin/dashboard')->middleware('auth');
+Route::get('/admin/dashboard', [DashboardController::class, 'dashboard'])
+    ->name('admin/dashboard')->middleware('auth');
 
 Auth::routes();
 
