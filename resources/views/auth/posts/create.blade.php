@@ -1,5 +1,38 @@
 @extends('layouts.auth')
 
+
+
+@section('title', 'Create Post')
+
+@section('styles')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+@endsection
+
+
+@section('scripts')
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Enter Post Description',
+            tabsize: 2,
+            height: 170,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
+@endsection
+
 @section('content')
     <div class="row w-100 ">
 
@@ -14,56 +47,60 @@
                 </ol>
             </nav>
         </div>
-        <div class="container-fluid page-body-wrapper ">
+        <div class="container-fluid page-body-wrapper  ">
             <!-- partial -->
             <div class="col-12 grid-margin stretch-card ">
-                <div class="card">
-                    <div class="card-body bg-light">
-                        <h4 class="card-title">Basic form elements</h4>
-                        <p class="card-description"> Basic form elements </p>
+                <div class="card ">
+                    <div class="card-body bg-light ms-3">
+                        <h4 class="card-title mb-5">Create Post Form</h4>
+                        {{-- <p class="card-description"> Post Details</p> --}}
                         <form class="forms-sample">
-                            <div class="form-group">
-                                <label for="exampleInputName1">Name</label>
-                                <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                            <!-- Title -->
+                            <div class="col-md-10 mb-3">
+                                <label for="title" class="form-label fw-semibold">Title</label>
+                                <input type="text" name="title" id="title" class="form-control form-control-lg"
+                                    placeholder="Enter Title">
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail3">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+
+                            <!-- Description -->
+                            <div class="col-md-10 mb-3 bg-none">
+                                <label for="summernote" class="form-label fw-semibold">Description</label>
+                                <textarea id="summernote" name="description" class="form-control" rows="6"></textarea>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword4">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword4"
-                                    placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleSelectGender">Gender</label>
-                                <select class="form-control" id="exampleSelectGender">
-                                    <option>Male</option>
-                                    <option>Female</option>
+
+                            <!-- Category -->
+                            <div class="col-md-10 mb-3">
+                                <label for="category" class="form-label fw-semibold">Category</label>
+                                <select name="category" id="category" class="form-select">
+                                    <option disabled selected>Choose Category</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>File upload</label>
-                                <input type="file" name="img[]" class="file-upload-default">
-                                <div class="input-group col-xs-12">
-                                    <input type="text" class="form-control file-upload-info" disabled
-                                        placeholder="Upload Image">
-                                    <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-gradient-primary"
-                                            type="button">Upload</button>
-                                    </span>
+
+                            <!-- Publish Status -->
+                            <div class="col-md-10 mb-3">
+                                <label for="is_publish" class="form-label fw-semibold">Status</label>
+                                <select name="is_publish" id="is_publish" class="form-select">
+                                    <option disabled selected>Choose Status</option>
+                                    <option value="1">🟢 Publish</option>
+                                    <option value="0">🟡 Draft</option>
+                                </select>
+                            </div>
+
+                            <!-- Image Upload -->
+                            <div class="col-md-10 mb-4">
+                                <label class="form-label fw-semibold">Post Image</label>
+
+                                <div class="input-group">
+                                    <input type="file" name="img[]" class="form-control">
                                 </div>
+
+                                <small class="text-muted d-block mt-1">
+                                    Allowed formats: JPG, PNG – Max size 2MB
+                                </small>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputCity1">City</label>
-                                <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleTextarea1">Textarea</label>
-                                <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-                            </div>
+
                             <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                            <button class="btn btn-light">Cancel</button>
+
                         </form>
                     </div>
                 </div>
