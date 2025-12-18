@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('auth.posts.create');
+        // return view('auth.posts.create');
     }
 
     /**
@@ -20,7 +22,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('auth.posts.create', ['categories' => $categories]);
     }
 
     /**
@@ -28,7 +31,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        #Data Validation
+        $data =   $request->validate([
+            'title' => ['required', 'string', 'min:3', 'max:50', 'unique:posts,title'],
+            'description' => ['required', 'string', 'min:8'],
+            'category' => ['required'],
+            'status' => ['required', 'in:0,1'],
+            'file' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048', 'dimensions:max_width=1080,max_height=1080']
+            // 'user_id' => ['required', 'exists:users,id'],
+        ]);
+
+        Post::create($data);
+        // dd($data);
+        return redirect()->route('posts.index')->with('success', "Post Created successfully");
     }
 
     /**
