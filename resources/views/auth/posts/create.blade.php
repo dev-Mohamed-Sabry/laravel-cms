@@ -16,20 +16,12 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
 
     <script>
-        $('#summernote').summernote({
-            placeholder: 'Enter Post Description',
-            tabsize: 2,
-            height: 170,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-        });
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                placeholder: 'Enter Post Description',
+                height: 250,
+            });
+        })
     </script>
 @endsection
 
@@ -110,5 +102,5 @@
 
 
             <!-- main-panel ends -->
-            {{-- </div> --}}
+
         @endsection
