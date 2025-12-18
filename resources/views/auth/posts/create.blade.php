@@ -96,13 +96,13 @@
                                 </select>
                             </div>
 
-                            <!-- Publish Status -->
+                            <!-- Publish is_publish -->
                             <div class="col-md-10 mb-3">
-                                <label for="status" class="form-label fw-semibold">Status</label>
-                                <select required name="status" id="status" class="form-select">
-                                    <option disabled @selected(old('status') === null)>Choose Status</option>
-                                    <option @selected(old('status') == 1) value="1">🟢 Publish</option>
-                                    <option @selected(old('status') == 0) value="0">🟡 Draft</option>
+                                <label for="is_publish" class="form-label fw-semibold">Status</label>
+                                <select required name="is_publish" id="is_publish" class="form-select">
+                                    <option disabled @selected(old('is_publish') === null)>Choose Status</option>
+                                    <option @selected(old('is_publish') == 1) value="1">🟢 Publish</option>
+                                    <option @selected(old('is_publish') == 0) value="0">🟡 Draft</option>
                                 </select>
                             </div>
 

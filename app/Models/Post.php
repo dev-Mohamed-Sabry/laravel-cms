@@ -12,8 +12,10 @@ class Post extends Model
     protected $fillable = [
         'title',
         'description',
-        'status',
+        'is_publish',
         'category',
-        'file'
+        'file',
+        'category_id',
+        'gallery_id'
     ];
 }
