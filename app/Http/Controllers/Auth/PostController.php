@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\Post\StorePostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -29,18 +30,9 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        #Data Validation
-        $data =   $request->validate([
-            'title' => ['required', 'string', 'min:3', 'max:50', 'unique:posts,title'],
-            'description' => ['required', 'string', 'min:8'],
-            'category' => ['required'],
-            'status' => ['required', 'in:0,1'],
-            'file' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048', 'dimensions:max_width=1080,max_height=1080']
-            // 'user_id' => ['required', 'exists:users,id'],
-        ]);
-
+        $data = $request->validated();
         Post::create($data);
         // dd($data);
         return redirect()->route('posts.index')->with('success', "Post Created successfully");

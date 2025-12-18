@@ -72,24 +72,25 @@
                             <div class="col-md-10 mb-3">
                                 <label for="title" class="form-label fw-semibold">Title</label>
                                 <input type="text" name="title" id="title" class="form-control form-control-lg"
-                                    placeholder="Enter Title">
+                                    placeholder="Enter Title" value="{{ old('title') }}" required>
                             </div>
 
                             <!-- Description -->
                             <div class="col-md-10 mb-3 bg-none">
                                 <label for="summernote" class="form-label fw-semibold">Description</label>
-                                <textarea id="summernote" name="description" class="form-control" rows="6"></textarea>
+                                <textarea id="summernote" name="description" class="form-control" rows="6">{{ old('description') }}</textarea>
                             </div>
 
                             <!-- Category -->
 
                             <div class="col-md-10 mb-3">
                                 <label for="category" class="form-label fw-semibold">Categories</label>
-                                <select name="category" id="category" class="form-select">
-                                    <option disabled selected>Choose Category</option>
+                                <select required name="category" id="category" class="form-select">
+                                    <option disabled @selected(old('category') === null)>Choose Category</option>
                                     @if (count($categories) > 0)
                                         @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <option @selected(old('category') == $category->id) value="{{ $category->id }}">
+                                                {{ $category->name }}</option>
                                         @endforeach
                                     @endif
                                 </select>
@@ -97,11 +98,11 @@
 
                             <!-- Publish Status -->
                             <div class="col-md-10 mb-3">
-                                <label for="is_publish" class="form-label fw-semibold">Status</label>
-                                <select name="status" id="is_publish" class="form-select">
-                                    <option disabled selected>Choose Status</option>
-                                    <option value="1">🟢 Publish</option>
-                                    <option value="0">🟡 Draft</option>
+                                <label for="status" class="form-label fw-semibold">Status</label>
+                                <select required name="status" id="status" class="form-select">
+                                    <option disabled @selected(old('status') === null)>Choose Status</option>
+                                    <option @selected(old('status') == 1) value="1">🟢 Publish</option>
+                                    <option @selected(old('status') == 0) value="0">🟡 Draft</option>
                                 </select>
                             </div>
 
@@ -110,7 +111,7 @@
                                 <label for="file" class="form-label fw-semibold">Image Upload </label>
                                 <div class="input-group">
                                     <input type="file" name="file" id="file" class="form-control"
-                                        accept="image/png, image/jpeg, image/jpg, image/webp">
+                                        accept="image/png, image/jpeg, image/jpg, image/webp" required>
                                 </div>
                                 <small class="text-muted d-block mt-1">
                                     Allowed formats: JPG, PNG – Max size 2MB
