@@ -43,6 +43,7 @@ class PostController extends Controller
         // Image Validation
 
         try {
+
             DB::beginTransaction();
 
             // 2️⃣ Handle image upload
@@ -70,7 +71,7 @@ class PostController extends Controller
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
-            // dd($th->getMessage());
+            $th->getMessage();
         }
 
 

@@ -16,4 +16,13 @@ class Post extends Model
         'description',
         'is_publish',
     ];
+
+    public function gallery()
+    {
+        return $this->belongsTo(Gallery::class);
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
