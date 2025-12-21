@@ -87,6 +87,7 @@
                                 <label for="category" class="form-label fw-semibold">Categories</label>
                                 <select required name="category" id="category" class="form-select">
                                     <option disabled @selected(old('category') === null)>Choose Category</option>
+
                                     @if (count($categories) > 0)
                                         @foreach ($categories as $category)
                                             <option @selected(old('category') == $category->id) value="{{ $category->id }}">
