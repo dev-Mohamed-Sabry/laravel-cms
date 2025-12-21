@@ -27,7 +27,7 @@ class StorePostRequest extends FormRequest
                 'description' => ['required', 'string', 'min:8'],
                 'category' => ['required'],
                 'is_publish' => ['required', 'in:0,1'],
-                'file' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048', 'dimensions:max_width=1080,max_height=1080']
+                'file' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:2048', 'dimensions:max_width=1080,max_height=1080']
                 // 'user_id' => ['required', 'exists:users,id'],
             ];
     }

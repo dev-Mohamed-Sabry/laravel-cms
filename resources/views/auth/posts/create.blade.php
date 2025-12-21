@@ -112,7 +112,7 @@
                                 <label for="file" class="form-label fw-semibold">Image Upload </label>
                                 <div class="input-group">
                                     <input type="file" name="file" id="file" class="form-control"
-                                        accept="image/png, image/jpeg, image/jpg, image/webp" required>
+                                        accept="image/png, image/jpeg, image/jpg, image/webp">
                                 </div>
                                 <small class="text-muted d-block mt-1">
                                     Allowed formats: JPG, PNG – Max size 2MB

@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Gallery;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Mews\Purifier\Facades\Purifier;
 
 class PostController extends Controller
@@ -40,27 +41,38 @@ class PostController extends Controller
         //Clean description field from harmful code if any exists
         $data['description'] = Purifier::clean($data['description']);
         // Image Validation
-        // 2️⃣ Handle image upload
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $fileName = time() . '-' . $file->getClientOriginalName();
-            // dd($fileName);
-            $file->move(public_path('uploads/posts'), $fileName);
 
-            // 3️⃣ Attach image name to data
-            $data['file'] = $fileName;
+        try {
+            DB::beginTransaction();
 
-            // 4️⃣ Save image in galleries table
-            $gallery = Gallery::create([
-                'image' => $fileName
-            ]);
+            // 2️⃣ Handle image upload
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $fileName = time() . '-' . $file->getClientOriginalName();
+                // dd($fileName);
+                $file->move(public_path('uploads/posts'), $fileName);
 
-            $data['gallery_id'] = $gallery->id;
-            $data['category_id'] = $request->category;
+                // 3️⃣ Attach image name to data
+                $data['file'] = $fileName;
+
+                // 4️⃣ Save image in galleries table
+                $gallery = Gallery::create([
+                    'image' => $fileName
+                ]);
+
+                $data['gallery_id'] = $gallery->id;
+                $data['category_id'] = $request->category;
+            }
+
+            // 5️⃣ Create post
+            Post::create($data);
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            dd($th->getMessage());
         }
 
-        // 5️⃣ Create post
-        Post::create($data);
+
         // dd($data);
         return redirect()->route('posts.index')->with('success', "Post Created successfully");
     }
