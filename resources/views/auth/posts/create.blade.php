@@ -70,21 +70,24 @@
                             @csrf
                             <!-- Title -->
                             <div class="col-md-10 mb-3">
-                                <label for="title" class="form-label fw-semibold">Title</label>
+                                <label for="title" class="form-label fw-semibold">Title <span
+                                        style="color: red">*</span></label>
                                 <input type="text" name="title" id="title" class="form-control form-control-lg"
                                     placeholder="Enter Title" value="{{ old('title') }}" required>
                             </div>
 
                             <!-- Description -->
                             <div class="col-md-10 mb-3 bg-none">
-                                <label for="summernote" class="form-label fw-semibold">Description</label>
+                                <label for="summernote" class="form-label fw-semibold">Description <span
+                                        style="color: red">*</span></label>
                                 <textarea id="summernote" name="description" class="form-control" rows="6">{{ old('description') }}</textarea>
                             </div>
 
                             <!-- Category -->
 
                             <div class="col-md-10 mb-3">
-                                <label for="category" class="form-label fw-semibold">Categories</label>
+                                <label for="category" class="form-label fw-semibold">Categories <span
+                                        style="color: red">*</span></label>
                                 <select required name="category" id="category" class="form-select">
                                     <option disabled @selected(old('category') === null)>Choose Category</option>
 
@@ -99,7 +102,8 @@
 
                             <!-- Publish is_publish -->
                             <div class="col-md-10 mb-3">
-                                <label for="is_publish" class="form-label fw-semibold">Status</label>
+                                <label for="is_publish" class="form-label fw-semibold">Status <span
+                                        style="color: red">*</span></label>
                                 <select required name="is_publish" id="is_publish" class="form-select">
                                     <option disabled @selected(old('is_publish') === null)>Choose Status</option>
                                     <option @selected(old('is_publish') == 1) value="1">🟢 Publish</option>
