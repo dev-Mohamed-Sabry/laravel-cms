@@ -60,16 +60,17 @@ class PostController extends Controller
                     'image' => $fileName
                 ]);
 
-                $data['gallery_id'] = $gallery->id;
-                $data['category_id'] = $request->category;
+                $data['gallery_id'] = $request->hasFile('file') ? $gallery->id : null;
+                // $data['gallery_id'] = $gallery->id;
             }
+            $data['category_id'] = $request->category;
 
             // 5️⃣ Create post
             Post::create($data);
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
-            dd($th->getMessage());
+            // dd($th->getMessage());
         }
 
 
