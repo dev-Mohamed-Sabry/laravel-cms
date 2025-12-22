@@ -11,4 +11,10 @@ class Gallery extends Model
     protected $fillable = [
         'image',
     ];
+
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
