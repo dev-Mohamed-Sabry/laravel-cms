@@ -2,23 +2,11 @@
 
 
 @section('content')
-    @if (session('success'))
-        <div class="row w-100">
-            <div class="container col-10 align-content-center">
-                <div class=" text-center alert alert-success alert-dismissible fade show mt-3" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-    @endif
-
-
-
-
     <div class="main-panel  row w-100 p-0 m-0">
         <div class="content-wrapper row w-100 m-0">
             <div class="page-header">
                 <h3 class="page-title"> Posts </h3>
+
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item "><a href="{{ route('posts.index') }}"
@@ -27,6 +15,17 @@
                     </ol>
                 </nav>
             </div>
+
+            @if (session('success'))
+                <div class="row w-100">
+                    <div class="container col-10 align-content-center">
+                        <div class=" text-center alert alert-success alert-dismissible fade show mt-3" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+            @endif
+
             <div class="w-100 col-12">
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">

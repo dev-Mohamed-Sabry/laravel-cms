@@ -66,14 +66,26 @@
         <div class="d-flex gap-2">
             <a href="{{ route('posts.index') }}" class="btn btn-secondary">⬅ Back</a>
             <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info text-white">✏ Edit</a>
-            <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+            <form id="delete-form" action="{{ route('posts.destroy', $post->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger" onclick="return confirm('Are You Sure?')">🗑 Delete</button>
+                <button class="btn btn-danger delete-btn" onclick="return confirm('Are You Sure?')">🗑 Delete</button>
             </form>
         </div>
+        {{-- <div class="d-flex gap-2">
+            <a href="{{ route('posts.index') }}" class="btn btn-secondary">⬅ Back</a>
+            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info text-white">✏ Edit</a> --}}
+    </div>
     </div>
     </div>
 
 
 @endsection
+{{-- <script>
+    function confirmDelete(event) {
+        event.preventDefault(); // يمنع الفورم من الإرسال مباشرة
+        if (confirm("Are you sure you want to delete this post?")) {
+            event.target.closest('form').submit(); // لو ضغط "OK" يبعت الفورم
+        }
+    }
+</script> --}}
