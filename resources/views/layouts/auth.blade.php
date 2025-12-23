@@ -23,7 +23,7 @@
 
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -44,7 +44,7 @@
                                 <i class="input-group-text border-0 mdi mdi-magnify"></i>
                             </div>
                             <input type="text" class="form-control bg-transparent border-0"
-                                placeholder="Search projects">
+                                placeholder="Search posts">
                         </div>
                     </form>
                 </div>
@@ -287,9 +287,10 @@
                     <li class="nav-item sidebar-actions">
                         <span class="nav-link">
                             <div class="border-bottom">
-                                <h6 class="font-weight-normal mb-3">Projects</h6>
+                                <h6 class="font-weight-normal mb-3">Posts</h6>
                             </div>
-                            <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add a project</button>
+                            <a href="{{ route('posts.create') }}"
+                                class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add a post</a>
                             <div class="mt-4">
                                 <div class="border-bottom">
                                     <p class="text-secondary">Categories</p>
@@ -309,7 +310,7 @@
 
             <!-- partial -->
             {{-- <div class="col-12"> --}}
-            <footer class="footer">
+            <footer class="footer ">
                 <div class="container-fluid d-flex justify-content-center ">
                     <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">
                         <script>

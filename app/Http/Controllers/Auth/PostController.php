@@ -84,9 +84,10 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Post $post)
     {
-        //
+        // dd($post);
+        return view('auth.posts.show', ['post' => $post]);
     }
 
     /**
@@ -108,8 +109,13 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Post $post)
     {
-        //
+        try {
+            $post->delete();
+            return redirect()->route('posts.index')->with('success', 'Post Deleted Successfully');
+        } catch (\Exception $e) {
+            return redirect()->route('posts.index')->with('error', 'Something Went Wrong');
+        }
     }
 }

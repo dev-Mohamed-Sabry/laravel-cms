@@ -31,7 +31,7 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Posts</h4>
+                            {{-- <h4 class="card-title">Posts</h4> --}}
                             </p>
                             <table class="table table-striped">
                                 <thead>
@@ -39,14 +39,18 @@
                                         <th> Image </th>
                                         <th> Title </th>
                                         <th> Description </th>
+                                        <th> Category </th>
                                         <th> Status </th>
                                         <th> Action </th>
                                     </tr>
                                 </thead>
 
-                                @foreach ($posts as $post)
-                                    {{-- @dd($post) --}}
-                                    <tbody>
+                                <tbody>
+                                    {{-- Testing --}}
+                                    {{-- @php
+                                        $posts = collect();
+                                    @endphp --}}
+                                    @forelse ($posts as $post)
                                         <tr>
                                             {{-- Image --}}
                                             <td class="py-1">
@@ -57,19 +61,33 @@
                                             <td> {{ $post->title }} </td>
                                             {{-- Description --}}
                                             <td>
-                                                {!! $post->description !!}
+                                                {{ Str::limit(strip_tags($post->description), 15, '...') }}
+                                            </td>
+                                            <td>
+                                                {{ $post->category->name }}
                                             </td>
                                             {{-- Status --}}
-                                            <td> {{ $post->is_publish == 1 ? 'Published' : 'Draft' }} </td>
+                                            <td> {{ $post->is_publish == 1 ? '🟢 Published' : '🟡 Draft' }} </td>
                                             <td>
-                                                <button type="button" class="btn btn-success btn-xs">View</button>
-                                                <button type="button" class="btn btn-info btn-xs">Edit</button>
-                                                <button type="button" class="btn btn-danger btn-xs">Delete</button>
+                                                <a href="{{ route('posts.show', $post->id) }} " type="button"
+                                                    class="btn btn-success btn-xs">View</a>
+                                                <a href="" type="button" class="btn btn-info btn-xs">Edit</a>
+                                                <a href="" type="button" class="btn btn-danger btn-xs">Delete</a>
                                             </td>
                                         </tr>
-                                    </tbody>
-                                @endforeach
+                                    @empty
+                                        <div class="row w-100">
+                                            <div class="container col-10 align-content-center">
+                                                <div class=" text-center alert alert-info alert-dismissible fade show mt-3"
+                                                    role="alert">
+                                                    No Posts Found
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforelse
+                                </tbody>
                             </table>
+
                         </div>
                     </div>
                 </div>
