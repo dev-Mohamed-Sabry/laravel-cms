@@ -4,7 +4,7 @@
 @section('content')
     @if (session('success'))
         <div class="row w-100">
-            <div class="container col-8 align-content-center">
+            <div class="container col-10 align-content-center">
                 <div class=" text-center alert alert-success alert-dismissible fade show mt-3" role="alert">
                     {{ session('success') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -15,8 +15,8 @@
 
 
 
-    <div class="main-panel">
-        <div class="content-wrapper">
+    <div class="main-panel  row w-100 p-0 m-0">
+        <div class="content-wrapper row w-100 m-0">
             <div class="page-header">
                 <h3 class="page-title"> Posts </h3>
                 <nav aria-label="breadcrumb">
@@ -27,7 +27,7 @@
                     </ol>
                 </nav>
             </div>
-            <div class="row">
+            <div class="w-100 col-12">
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
@@ -43,23 +43,32 @@
                                         <th> Action </th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="py-1">
-                                            <img src="{{ asset('assets/website/images/faces-clipart/pic-1.png') }}"
-                                                alt="image" />
-                                        </td>
-                                        <td> Herman Beck </td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%"
-                                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </td>
-                                        <td> $ 77.99 </td>
-                                        <td> May 15, 2015 </td>
-                                    </tr>
-                                </tbody>
+
+                                @foreach ($posts as $post)
+                                    {{-- @dd($post) --}}
+                                    <tbody>
+                                        <tr>
+                                            {{-- Image --}}
+                                            <td class="py-1">
+                                                <img src=" {{ $post->gallery ? asset('uploads/posts/' . $post->gallery?->image) : asset('uploads/no_user/no_user.jpg') }}"
+                                                    alt="image" />
+                                            </td>
+                                            {{-- Title --}}
+                                            <td> {{ $post->title }} </td>
+                                            {{-- Description --}}
+                                            <td>
+                                                {!! $post->description !!}
+                                            </td>
+                                            {{-- Status --}}
+                                            <td> {{ $post->is_publish == 1 ? 'Published' : 'Draft' }} </td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-xs">View</button>
+                                                <button type="button" class="btn btn-info btn-xs">Edit</button>
+                                                <button type="button" class="btn btn-danger btn-xs">Delete</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                @endforeach
                             </table>
                         </div>
                     </div>

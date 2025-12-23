@@ -18,8 +18,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::with(['gallery', 'category'])->get();
-        return view('auth.posts.index');
+        $posts = Post::with(['gallery', 'category'])->get();
+        // return $posts;
+        return view('auth.posts.index', ['posts' => $posts]);
     }
 
     /**
