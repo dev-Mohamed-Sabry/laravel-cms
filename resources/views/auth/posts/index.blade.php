@@ -1,5 +1,9 @@
 @extends('layouts.auth')
 
+@section('styles')
+    {{-- Font Awesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+@endsection
 
 @section('content')
     <div class="main-panel  row w-100 p-0 m-0">
@@ -69,9 +73,11 @@
                                             <td> {{ $post->is_publish == 1 ? '🟢 Published' : '🟡 Draft' }} </td>
                                             <td>
                                                 <a href="{{ route('posts.show', $post->id) }} " type="button"
-                                                    class="btn btn-success btn-xs">View</a>
-                                                <a href="" type="button" class="btn btn-info btn-xs">Edit</a>
-                                                <a href="" type="button" class="btn btn-danger btn-xs">Delete</a>
+                                                    class="btn btn-success btn-xs"><i class="fa-solid fa-eye"></i></a>
+                                                <a href="" type="button" class="btn btn-info btn-xs"><i
+                                                        class="fa-solid fa-pen-to-square"></i></a>
+                                                <a href="" type="button" class="btn btn-danger btn-xs"><i
+                                                        class="fa-solid fa-trash "></i></a>
                                             </td>
                                         </tr>
                                     @empty
