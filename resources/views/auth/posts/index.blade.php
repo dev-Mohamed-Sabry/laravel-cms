@@ -3,6 +3,10 @@
 @section('styles')
     {{-- Font Awesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    {{-- Swal --}}
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.26.17/dist/sweetalert2.min.css
+" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -57,8 +61,7 @@
                                         <tr>
                                             {{-- Image --}}
                                             <td class="py-1">
-                                                <img src=" {{ $post->gallery ? asset('uploads/posts/' . $post->gallery?->image) : asset('uploads/no_user/no_user.jpg') }}"
-                                                    alt="image" />
+                                                <img src=" {{ $post->image }}" alt="image" />
                                             </td>
                                             {{-- Title --}}
                                             <td> {{ $post->title }} </td>
@@ -72,10 +75,13 @@
                                             {{-- Status --}}
                                             <td> {{ $post->is_publish == 1 ? '🟢 Published' : '🟡 Draft' }} </td>
                                             <td>
+                                                {{-- View --}}
                                                 <a href="{{ route('posts.show', $post->id) }} " type="button"
                                                     class="btn btn-success btn-xs"><i class="fa-solid fa-eye"></i></a>
+                                                {{-- Edit --}}
                                                 <a href="" type="button" class="btn btn-info btn-xs"><i
                                                         class="fa-solid fa-pen-to-square"></i></a>
+                                                {{-- Delete --}}
                                                 <a href="" type="button" class="btn btn-danger btn-xs"><i
                                                         class="fa-solid fa-trash "></i></a>
                                             </td>

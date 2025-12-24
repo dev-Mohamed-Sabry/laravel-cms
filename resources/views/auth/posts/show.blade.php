@@ -69,7 +69,8 @@
             <form id="delete-form" action="{{ route('posts.destroy', $post->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger delete-btn" onclick="return confirm('Are You Sure?')">🗑 Delete</button>
+
+                <button type="button" class="btn btn-danger delete-btn" onclick="swalDelete()">🗑 Delete</button>
             </form>
         </div>
         {{-- <div class="d-flex gap-2">
@@ -78,14 +79,27 @@
     </div>
     </div>
     </div>
-
-
 @endsection
-{{-- <script>
-    function confirmDelete(event) {
-        event.preventDefault(); // يمنع الفورم من الإرسال مباشرة
-        if (confirm("Are you sure you want to delete this post?")) {
-            event.target.closest('form').submit(); // لو ضغط "OK" يبعت الفورم
+
+
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function swalDelete() {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-form').submit();
+                }
+            });
         }
-    }
-</script> --}}
+    </script>
+@endsection

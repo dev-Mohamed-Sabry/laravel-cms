@@ -25,4 +25,12 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    // Get Post Image
+    public function getImageAttribute()
+    {
+        return $this->gallery
+            ? asset('uploads/posts/' . $this->gallery->image)
+            : asset('uploads/no_user/no_user.jpg');
+    }
 }
