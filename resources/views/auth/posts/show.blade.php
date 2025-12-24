@@ -69,7 +69,6 @@
             <form id="delete-form" action="{{ route('posts.destroy', $post->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-
                 <button type="button" class="btn btn-danger delete-btn" onclick="swalDelete()">🗑 Delete</button>
             </form>
         </div>
@@ -79,27 +78,4 @@
     </div>
     </div>
     </div>
-@endsection
-
-
-@section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script>
-        function swalDelete() {
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('delete-form').submit();
-                }
-            });
-        }
-    </script>
 @endsection

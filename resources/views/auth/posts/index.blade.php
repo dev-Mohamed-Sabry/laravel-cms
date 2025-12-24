@@ -78,12 +78,20 @@
                                                 {{-- View --}}
                                                 <a href="{{ route('posts.show', $post->id) }} " type="button"
                                                     class="btn btn-success btn-xs"><i class="fa-solid fa-eye"></i></a>
+
                                                 {{-- Edit --}}
                                                 <a href="" type="button" class="btn btn-info btn-xs"><i
                                                         class="fa-solid fa-pen-to-square"></i></a>
+
                                                 {{-- Delete --}}
-                                                <a href="" type="button" class="btn btn-danger btn-xs"><i
-                                                        class="fa-solid fa-trash "></i></a>
+                                                <form class="d-inline" id="delete-form"
+                                                    action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+
+                                                    <button type="button" class="btn btn-danger delete-btn btn-xs"
+                                                        onclick="swalDelete()"><i class="fa-solid fa-trash "></i></button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @empty
