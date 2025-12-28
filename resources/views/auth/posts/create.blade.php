@@ -32,7 +32,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item ">
-                        <a href="{{ route('posts.create') }}" class="text-decoration-none">Posts</a>
+                        <a href="{{ route('posts.index') }}" class="text-decoration-none">Posts</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">Create Post</li>
                 </ol>
