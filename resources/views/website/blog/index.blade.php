@@ -22,22 +22,23 @@
                         <div class="post">
                             <div class="post-media post-thumb">
                                 <a href="blog-single.html">
-                                    <img src="{{ $post->image }}" style="width: 250px" alt="Post Image">
+                                    <img src="{{ $post->image }}" style="width: 450px" alt="Post Image">
                                 </a>
                             </div>
                             <h3 class="post-title"><a href="blog-single.html">{{ $post->title }}</a></h3>
                             <div class="post-meta">
                                 <ul>
                                     <li>
-                                        <i class="ion-calendar"></i> {{ $post->created_at }}
+                                        <i class="ion-calendar"></i>
+                                        {{ optional($post->created_at)->format('d M Y H:i') ?? 'Not Available' }}
+
                                     </li>
                                     <li>
                                         <i class="ion-android-people"></i> POSTED BY ADMIN
                                     </li>
                                     <li>
-                                        <a href="blog-grid.html"><i class="ion-pricetags"></i> LIFESTYLE</a>,<a
-                                            href="blog-left-sidebar.html">
-                                            TRAVEL</a>, <a href="blog-right-sidebar.html">FASHION</a>
+                                        <i class="ion-pricetags"> </i><a
+                                            href="#">{{ $post?->category?->name ?? 'No Category' }}
                                     </li>
 
                                 </ul>

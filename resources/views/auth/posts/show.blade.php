@@ -41,7 +41,7 @@
                         <p class="mb-2">
                             <strong>Category:</strong>
                             <span class="badge bg-secondary">
-                                {{ $post->category?->name ?? 'No Category' }}
+                                {{ $post?->category?->name ?? 'No Category' }}
                             </span>
                         </p>
 
