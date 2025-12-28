@@ -16,7 +16,7 @@ use App\Http\Controllers\WebsiteController;
 Route::get('/', [WebsiteController::class, 'home'])->name('home');
 
 Route::get('/post/{post}',   [WebsiteController::class, 'show'])
-    ->name('blog.show');
+    ->name('blog.single');
 
 
 /*

@@ -29,8 +29,7 @@
 
                     {{-- Image --}}
                     <div class="col-md-4 text-center">
-                        <img src="{{ $post->gallery ? asset('uploads/posts/' . $post->gallery->image) : asset('uploads/no_user/no_user.jpg') }}"
-                            class="img-fluid rounded mb-3" alt="Post Image">
+                        <img src="{{ $post->image }}" class="img-fluid rounded mb-3" alt="Post Image">
                     </div>
 
                     {{-- Content --}}

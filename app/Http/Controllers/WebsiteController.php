@@ -16,6 +16,6 @@ class WebsiteController extends Controller
 
     public function show(Post $post)
     {
-        return view('website.blog.show', ['post' => $post]);
+        return view('website.blog.single', ['post' => $post]);
     }
 }

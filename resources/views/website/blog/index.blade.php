@@ -44,8 +44,8 @@
                                 </ul>
                             </div>
                             <div class="post-content">
-                                <p>{!! $post->description !!} </p>
-                                <a href="{{ route('blog.show', $post->id) }}" class="btn btn-main">Read More</a>
+                                <p>{{ Str::limit(strip_tags($post->description), 15, '...') }}</p>
+                                <a href="{{ route('blog.single', $post->id) }}" class="btn btn-main">Read More</a>
                             </div>
 
                         </div>

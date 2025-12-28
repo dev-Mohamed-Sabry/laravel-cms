@@ -7,8 +7,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="block">
-                        <h1>Blog Destils</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, quibusdam.</p>
+                        <h1>Post Details</h1>
+                        <p>{{ $post->title }}</p>
                     </div>
                 </div>
             </div>
@@ -20,26 +20,25 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="post post-single">
-                        <h2 class="post-title">How To Wear Bright Shoes</h2>
+                        <h2 class="post-title">{{ $post->title }}</h2>
                         <div class="post-meta">
                             <ul>
                                 <li>
-                                    <i class="ion-calendar"></i> 20, MAR 2020
+                                    <i class="ion-calendar"></i>
+                                    {{ optional($post->created_at)->format('d M Y H:i') ?? 'Not Available' }}
+
                                 </li>
                                 <li>
                                     <i class="ion-android-people"></i> POSTED BY ADMIN
                                 </li>
                                 <li>
-                                    <a href="blog-grid.html"><i class="ion-pricetags"></i> LIFESTYLE</a>,<a
-                                        href="blog-left-sidebar.html"> TRAVEL</a>, <a
-                                        href="blog-right-sidebar.html">FASHION</a>
+                                    <i class="ion-pricetags"> </i>{{ $post?->category?->name ?? 'No Category' }}
                                 </li>
 
                             </ul>
                         </div>
-                        <div class="post-thumb">
-                            <img class="img-fluid" src="{{ asset('assets/website/images/blog/blog-post-1.jpg') }}"
-                                alt="">
+                        <div class="post-thumb" style="text-align: center">
+                            <img class="img-fluid" src="{{ $post->image }}" alt="post-Image" style="width: 500px; ">
                         </div>
                         <div class="post-content post-excerpt">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit vitae placeat ad architecto
