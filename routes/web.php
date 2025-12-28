@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Auth\PostController;
+use App\Http\Controllers\WebsiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,13 +13,11 @@ use App\Http\Controllers\Auth\PostController;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', function () {
-    return view('website.blog.index');
-})->name('home');
+Route::get('/', [WebsiteController::class, 'home'])->name('home');
 
-Route::get('/single', function () {
-    return view('website.blog.single');
-})->name('blog.single');
+Route::get('/post/{post}',   [WebsiteController::class, 'show'])
+    ->name('blog.show');
+
 
 /*
 |--------------------------------------------------------------------------

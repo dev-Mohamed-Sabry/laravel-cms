@@ -18,46 +18,46 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="post">
-                        <div class="post-media post-thumb">
-                            <a href="blog-single.html">
-                                <img src="{{ asset('assets/website/images/blog/blog-post-1.jpg') }}" alt="">
-                            </a>
-                        </div>
-                        <h3 class="post-title"><a href="blog-single.html">How To Wear Bright Shoes</a></h3>
-                        <div class="post-meta">
-                            <ul>
-                                <li>
-                                    <i class="ion-calendar"></i> 20, MAR 2020
-                                </li>
-                                <li>
-                                    <i class="ion-android-people"></i> POSTED BY ADMIN
-                                </li>
-                                <li>
-                                    <a href="blog-grid.html"><i class="ion-pricetags"></i> LIFESTYLE</a>,<a
-                                        href="blog-left-sidebar.html">
-                                        TRAVEL</a>, <a href="blog-right-sidebar.html">FASHION</a>
-                                </li>
+                    @forelse($posts as $post)
+                        <div class="post">
+                            <div class="post-media post-thumb">
+                                <a href="blog-single.html">
+                                    <img src="{{ $post->image }}" style="width: 250px" alt="Post Image">
+                                </a>
+                            </div>
+                            <h3 class="post-title"><a href="blog-single.html">{{ $post->title }}</a></h3>
+                            <div class="post-meta">
+                                <ul>
+                                    <li>
+                                        <i class="ion-calendar"></i> {{ $post->created_at }}
+                                    </li>
+                                    <li>
+                                        <i class="ion-android-people"></i> POSTED BY ADMIN
+                                    </li>
+                                    <li>
+                                        <a href="blog-grid.html"><i class="ion-pricetags"></i> LIFESTYLE</a>,<a
+                                            href="blog-left-sidebar.html">
+                                            TRAVEL</a>, <a href="blog-right-sidebar.html">FASHION</a>
+                                    </li>
 
-                            </ul>
-                        </div>
-                        <div class="post-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit vitae placeat ad architecto
-                                nostrum
-                                asperiores
-                                vel aperiam, veniam eum nulla. Maxime cum magnam, adipisci architecto quibusdam cumque
-                                veniam fugiat
-                                quae. Lorem
-                                ipsum dolor sit amet, consectetur adipisicing elit. Odio vitae ab doloremque accusamus sit,
-                                eos dolorum
-                                officiis a
-                                perspiciatis aliquid. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod,
-                                facere. </p>
-                            <a href="blog-single.html" class="btn btn-main">Continue Reading</a>
-                        </div>
+                                </ul>
+                            </div>
+                            <div class="post-content">
+                                <p>{!! $post->description !!} </p>
+                                <a href="{{ route('blog.show', $post->id) }}" class="btn btn-main">Read More</a>
+                            </div>
 
-                    </div>
-                    <div class="post">
+                        </div>
+                    @empty
+                        <div class="row w-100">
+                            <div class="container col-10 align-content-center">
+                                <div class=" text-center alert alert-info alert-dismissible fade show mt-3" role="alert">
+                                    No Posts Found
+                                </div>
+                            </div>
+                        </div>
+                    @endforelse
+                    {{-- <div class="post">
                         <div class="post-media post-thumb">
                             <a href="blog-single.html">
                                 <img src="{{ asset('assets/website/images/blog/blog-post-2.jpg') }}" alt="">
@@ -240,7 +240,7 @@
                             </p>
                             <a href="blog-single.html" class="btn btn-main">Continue Reading</a>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <nav aria-label="Page navigation example">
                         <ul class="pagination post-pagination">
@@ -272,8 +272,7 @@
                                 <div class="media">
                                     <a class="pull-left" href="blog-single.html">
                                         <img class="media-object"
-                                            src="{{ asset('assets/website/images/blog/post-thumb-2.jpg') }}"
-                                            alt="Image">
+                                            src="{{ asset('assets/website/images/blog/post-thumb-2.jpg') }}" alt="Image">
                                     </a>
                                     <div class="media-body">
                                         <h4 class="media-heading"><a href="blog-single.html">Welcome to Themefisher
@@ -284,8 +283,7 @@
                                 <div class="media">
                                     <a class="pull-left" href="blog-single.html">
                                         <img class="media-object"
-                                            src="{{ asset('assets/website/images/blog/post-thumb-3.jpg') }}"
-                                            alt="Image">
+                                            src="{{ asset('assets/website/images/blog/post-thumb-3.jpg') }}" alt="Image">
                                     </a>
                                     <div class="media-body">
                                         <h4 class="media-heading"><a href="blog-single.html">Warm welcome from swift</a>
@@ -296,8 +294,7 @@
                                 <div class="media">
                                     <a class="pull-left" href="blog-single.html">
                                         <img class="media-object"
-                                            src="{{ asset('assets/website/images/blog/post-thumb-4.jpg') }}"
-                                            alt="Image">
+                                            src="{{ asset('assets/website/images/blog/post-thumb-4.jpg') }}" alt="Image">
                                     </a>
                                     <div class="media-body">
                                         <h4 class="media-heading"><a href="blog-single.html">Introducing Swift for Mac</a>

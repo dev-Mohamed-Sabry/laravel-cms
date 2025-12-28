@@ -88,8 +88,7 @@
                                             class="ion-ios-arrow-down"></span></a>
                                     <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdown05">
                                         <li><a class="dropdown-item activeGrid" href="blog-grid.html">Blog Grid</a></li>
-                                        <li><a class="dropdown-item activeSingle"
-                                                href="{{ route('blog.single') }}">Blog
+                                        <li><a class="dropdown-item activeSingle" href="#">Blog
                                                 Single</a></li>
                                         <li><a class="dropdown-item active" href="blog-right-sidebar.html">Blog Right
                                                 Sidebar</a></li>
