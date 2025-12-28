@@ -20,7 +20,13 @@ class PostController extends Controller
     {
         $posts = Post::with(['gallery', 'category'])->get();
         // return $posts;
-        return view('auth.posts.index', ['posts' => $posts]);
+        return view(
+            'auth.posts.index',
+            [
+                'posts' => $posts
+
+            ]
+        );
     }
 
     /**

@@ -7,6 +7,8 @@
     {{-- Swal --}}
     <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.26.17/dist/sweetalert2.min.css
 " rel="stylesheet">
+    {{-- {DataTable CDN} --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.6/css/dataTables.dataTables.min.css">
 @endsection
 
 @section('content')
@@ -40,7 +42,7 @@
                         <div class="card-body">
                             {{-- <h4 class="card-title">Posts</h4> --}}
                             </p>
-                            <table class="table table-striped">
+                            <table id="posts-table" class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th> Image </th>
@@ -119,4 +121,14 @@
             <!-- content-wrapper ends -->
 
         </div>
+    @endsection
+
+    {{-- DataTable CDN --}}
+    @section('scripts')
+        <script src="https://cdn.datatables.net/2.3.6/js/dataTables.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#posts-table').DataTable();
+            })
+        </script>
     @endsection
