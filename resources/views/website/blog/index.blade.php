@@ -79,57 +79,29 @@
                             <!-- Widget Latest Posts -->
                             <div class="widget widget-latest-post">
                                 <h4 class="widget-title">Latest Posts</h4>
-                                <div class="media">
-                                    <a class="pull-left" href={{ route('blog.single', $post->id) }}>
-                                        <img class="media-object"
-                                            src="{{ asset('assets/website/images/blog/post-thumb.jpg') }}" alt="Image">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><a href={{ route('blog.single', $post->id) }}>Introducing
-                                                Swift for Mac</a>
-                                        </h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, officia.</p>
+                                @forelse ($latestPosts as  $latestPost)
+                                    <div class="media">
+                                        <a class="pull-left" href={{ route('blog.single', $latestPost->id) }}>
+                                            <img class="media-object" src="{{ $latestPost->image }}" alt="Post-Image">
+                                        </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading"><a
+                                                    href={{ route('blog.single', $latestPost->id) }}>{{ $latestPost->title }}</a>
+                                            </h4>
+                                            <p class="m-0">{{ $latestPost->created_at->format('Y-M-d H:i') }}</p>
+                                            <p>{{ Str::limit(strip_tags($latestPost->description), 50, '...') }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="media">
-                                    <a class="pull-left" href={{ route('blog.single', $post->id) }}>
-                                        <img class="media-object"
-                                            src="{{ asset('assets/website/images/blog/post-thumb-2.jpg') }}"
-                                            alt="Image">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><a href={{ route('blog.single', $post->id) }}>Welcome to
-                                                Themefisher
-                                                Family</a></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, officia.</p>
+                                @empty
+                                    <div class="row w-100">
+                                        <div class="container col-10 align-content-center">
+                                            <div class=" text-center alert alert-info alert-dismissible fade show mt-3"
+                                                role="alert">
+                                                No Posts Found
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="media">
-                                    <a class="pull-left" href={{ route('blog.single', $post->id) }}>
-                                        <img class="media-object"
-                                            src="{{ asset('assets/website/images/blog/post-thumb-3.jpg') }}"
-                                            alt="Image">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><a href={{ route('blog.single', $post->id) }}>Warm
-                                                welcome from swift</a>
-                                        </h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, officia.</p>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <a class="pull-left" href={{ route('blog.single', $post->id) }}>
-                                        <img class="media-object"
-                                            src="{{ asset('assets/website/images/blog/post-thumb-4.jpg') }}"
-                                            alt="Image">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><a href={{ route('blog.single', $post->id) }}>Introducing
-                                                Swift for Mac</a>
-                                        </h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, officia.</p>
-                                    </div>
-                                </div>
+                                @endforelse
                             </div>
                             <!-- End Latest Posts -->
 
@@ -137,21 +109,25 @@
                             <div class="widget widget-category">
                                 <h4 class="widget-title">Categories</h4>
                                 <ul class="widget-category-list">
-                                    <li><a href="blog-grid.html">Animals</a>
-                                    </li>
-                                    <li><a href="blog-grid.html">Landscape</a>
-                                    </li>
-                                    <li><a href="blog-grid.html">Portrait</a>
-                                    </li>
-                                    <li><a href="blog-grid.html">Wild Life</a>
-                                    </li>
-                                    <li><a href="blog-grid.html">Video</a>
-                                    </li>
+                                    @forelse ($categories as $category)
+                                        <li><a>{{ $category->name }}</a>
+                                        </li>
+                                    @empty
+                                        <div class="row w-100">
+                                            <div class="container col-10 align-content-center">
+                                                <div class=" text-center alert alert-info alert-dismissible fade show mt-3"
+                                                    role="alert">
+                                                    No Categories Found
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforelse
                                 </ul>
+
                             </div> <!-- End category  -->
 
                             <!-- Widget tag -->
-                            <div class="widget widget-tag">
+                            {{-- <div class="widget widget-tag">
                                 <h4 class="widget-title">Tag Cloud</h4>
                                 <ul class="widget-tag-list">
                                     <li><a href="blog-grid.html">Animals</a>
@@ -165,7 +141,7 @@
                                     <li><a href="blog-grid.html">Video</a>
                                     </li>
                                 </ul>
-                            </div> <!-- End tag  -->
+                            </div> <!-- End tag  --> --}}
                         </aside>
                     </div>
                 </div>
