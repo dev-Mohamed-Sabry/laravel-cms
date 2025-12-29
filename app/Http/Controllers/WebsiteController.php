@@ -9,7 +9,7 @@ class WebsiteController extends Controller
 {
     public function home()
     {
-        $posts = Post::where('is_publish', true)->get(); //Get only published posts from posts table
+        $posts = Post::where('is_publish', true)->paginate(2); //Get only published posts from posts table
         // dd($posts);
         return view('website.blog.index', ['posts' => $posts]);
     }

@@ -223,18 +223,23 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                            aria-controls="ui-basic">
+                        <a class="nav-link" aria-expanded="false" aria-controls="ui-basic">
                             <span class="menu-title">Posts</span>
-                            <i class="menu-arrow"></i>
                             <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                         </a>
-                        <div class="collapse" id="ui-basic">
+                        <div id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{ route('posts.create') }}">Create
-                                        Post</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="{{ route('posts.index') }}">Posts</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('posts.create') }}">Create
+                                        Post
+                                        <i class="menu-arrow"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('posts.index') }}">Posts
+                                        <i class="menu-arrow"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </li>
