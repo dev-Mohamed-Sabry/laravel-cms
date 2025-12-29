@@ -57,7 +57,7 @@
                                 <li class="nav-item @@home">
                                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                                 </li>
-                                <li class="nav-item dropdown @@portfolio">
+                                {{-- <li class="nav-item dropdown @@portfolio">
                                     <a class="nav-link dropdown-toggle" href="#" id="dropdown03"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Portfolio <span class="ion-ios-arrow-down"></span>
@@ -79,44 +79,19 @@
                                             </ul>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item @@service"><a class="nav-link"
-                                        href="service.html">Service</a></li>
-                                <li class="nav-item dropdown active">
-                                    <a class="nav-link dropdown-toggle" href="#" id="dropdown05"
-                                        data-bs-toggle="dropdown" aria-expanded="false">Blog <span
-                                            class="ion-ios-arrow-down"></span></a>
-                                    <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdown05">
-                                        <li><a class="dropdown-item activeGrid" href="blog-grid.html">Blog Grid</a></li>
-                                        <li><a class="dropdown-item activeSingle" href="#">Blog
-                                                Single</a></li>
-                                        <li><a class="dropdown-item active" href="blog-right-sidebar.html">Blog Right
-                                                Sidebar</a></li>
-                                        <li><a class="dropdown-item activeLS" href="blog-left-sidebar.html">Blog Left
-                                                Sidebar</a></li>
-                                        <li><a class="dropdown-item activeFW" href="blog-full-width.html">Blog Full
-                                                Width</a></li>
+                                        href="{{ route('website.services') }}">Service</a></li>
+                                <li class="nav-item @@service"><a class="nav-link"
+                                        href="{{ route('blog') }}">Blog</a></li>
 
-                                        <!-- SUB MENU -->
-                                        <li class="dropdown dropstart">
-                                            <a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown">
-                                                Sub Menu
-                                            </a>
-
-                                            <ul class="dropdown-menu" aria-labelledby="dropdown0501-sub">
-                                                <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-                                                <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
                                 <li class="nav-item dropdown @@pages">
                                     <a class="nav-link dropdown-toggle" href="#" id="dropdown05"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages
                                         <span class="ion-ios-arrow-down"></span></a>
                                     <ul class="dropdown-menu" aria-labelledby="dropdown05">
-                                        <li><a class="dropdown-item @@about" href="about.html">About
-                                                Us</a></li>
+                                        <li><a class="dropdown-item @@about"
+                                                href="{{ route('about') }}">About Us</a></li>
                                         <li><a class="dropdown-item @@comingSoon"
                                                 href="coming-soon.html">Coming Soon</a></li>
                                         <li><a class="dropdown-item @@404" href="404.html">404

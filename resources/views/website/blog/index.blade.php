@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="block">
-                        <h1>Blog Right Sidebar</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, quibusdam.</p>
+                        <h1>Our Blog</h1>
+                        <p>We Post What You Need To Read</p>
                     </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                                 <h4 class="widget-title">Categories</h4>
                                 <ul class="widget-category-list">
                                     @forelse ($categories as $category)
-                                        <li><a>{{ $category->name }}</a>
+                                        <li><a>{{ $category }}</a>
                                         </li>
                                     @empty
                                         <div class="row w-100">

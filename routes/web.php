@@ -13,10 +13,11 @@ use App\Http\Controllers\WebsiteController;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', [WebsiteController::class, 'home'])->name('home');
-
-Route::get('/post/{post}',   [WebsiteController::class, 'show'])
-    ->name('blog.single');
+Route::get('/', [WebsiteController::class, 'index'])->name('home');
+Route::get('/services',    [WebsiteController::class, 'services'])->name('website.services');
+Route::get('/blog', [WebsiteController::class, 'blog'])->name('blog');
+Route::get('/about', [WebsiteController::class, 'about'])->name('about');
+Route::get('/post/{post}',   [WebsiteController::class, 'show'])->name('blog.single');
 
 
 /*
