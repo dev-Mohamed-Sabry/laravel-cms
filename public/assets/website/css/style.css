@@ -3084,3 +3084,12 @@ ul.dropdown-menu li {
 }
 
 /* End Submeny Opens Left */
+
+/* Start Laravel pagination */
+.pagination .page-item.active .page-link {
+  background-color: #655E7A;
+  border-color: #655E7A;
+  color: #fff;
+}
+
+/* End Laravel pagination */

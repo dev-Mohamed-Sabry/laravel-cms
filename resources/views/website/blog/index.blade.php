@@ -68,7 +68,7 @@
                             <li class="page-item"><a class="page-link" href="blog-grid.html">Next</a></li>
                         </ul>
                     </nav> --}}
-                    <nav class="blog-subtitle col-5 pop">
+                    <nav class="blog-subtitle col-5">
                         {{ $posts->links() }}
                     </nav>
 
