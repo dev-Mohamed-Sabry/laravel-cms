@@ -79,17 +79,19 @@
                             <!-- Widget Latest Posts -->
                             <div class="widget widget-latest-post">
                                 <h4 class="widget-title">Latest Posts</h4>
-                                @forelse ($latestPosts as  $latestPost)
+                                @forelse ($latestPosts as $latestPost)
                                     <div class="media">
-                                        <a class="pull-left" href={{ route('blog.single', $latestPost->id) }}>
-                                            <img class="media-object" src="{{ $latestPost->image }}" alt="Post-Image">
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading"><a
-                                                    href={{ route('blog.single', $latestPost->id) }}>{{ $latestPost->title }}</a>
-                                            </h4>
-                                            <p class="m-0">{{ $latestPost->created_at->format('Y-M-d H:i') }}</p>
-                                            <p>{{ Str::limit(strip_tags($latestPost->description), 50, '...') }}</p>
+                                        <div class="media-body d-flex">
+                                            <a class="pull-left" href={{ route('blog.single', $latestPost->id) }}>
+                                                <img class="media-object" src="{{ $latestPost->image }}" alt="Post-Image">
+                                            </a>
+                                            <div>
+                                                <h4 class="media-heading"><a
+                                                        href={{ route('blog.single', $latestPost->id) }}>{{ $latestPost->title }}</a>
+                                                </h4>
+                                                <p>{{ $latestPost->created_at->format('Y-M-d H:i') }}</p>
+                                                <p>{{ Str::limit(strip_tags($latestPost->description), 50, '...') }}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 @empty

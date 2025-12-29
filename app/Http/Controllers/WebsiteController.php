@@ -12,9 +12,8 @@ class WebsiteController extends Controller
     {
 
         $categories = Category::all();
-        $latestPosts = Post::orderBy('created_at', 'desc')->take(5)->get(); //Get latest 5 posts from DB
-        $posts = Post::where('is_publish', true)->paginate(2); //Get only published posts from posts table
-        // dd($posts);
+        $latestPosts = Post::where('is_publish', true)->latest()->take(5)->get(); //Get latest 5 posts from DB
+        $posts = Post::where('is_publish', true)->orderBy('created_at', 'desc')->paginate(2); //Get only published posts from posts table
         return view('website.blog.index', ['posts' => $posts, 'latestPosts' => $latestPosts,  'categories' => $categories]);
     }
 
