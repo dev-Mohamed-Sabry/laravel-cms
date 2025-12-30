@@ -7,7 +7,7 @@
                 <div class="col-md-12">
                     <div class="block">
                         <h1>About Our Company</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, ex!</p>
+                        <p>Get to know our history</p>
                     </div>
                 </div>
             </div>
@@ -186,78 +186,65 @@
                 </div>
                 <div class="col-lg-6 mt-5 mt-lg-0">
                     <div class="tabCommon">
+
+                        <!-- Tabs -->
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
+
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="vision-tab" data-toggle="tab" href="#vision" role="tab"
-                                    aria-controls="vision" aria-selected="true">Vision</a>
+                                <button class="nav-link active" id="vision-tab" data-bs-toggle="tab"
+                                    data-bs-target="#vision" type="button" role="tab" aria-controls="vision"
+                                    aria-selected="true">
+                                    🟣 Vision
+                                </button>
                             </li>
+
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="mission-tab" data-toggle="tab" href="#mission" role="tab"
-                                    aria-controls="mission" aria-selected="false">Mission</a>
+                                <button class="nav-link " id="mission-tab" data-bs-toggle="tab"
+                                    data-bs-target="#mission" type="button" role="tab" aria-controls="mission"
+                                    aria-selected="false">
+                                    🟣 Mission
+                                </button>
                             </li>
+
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="approch-tab" data-toggle="tab" href="#approch" role="tab"
-                                    aria-controls="approch" aria-selected="false">Approach</a>
+                                <button class="nav-link " id="approch-tab" data-bs-toggle="tab"
+                                    data-bs-target="#approch" type="button" role="tab" aria-controls="approch"
+                                    aria-selected="false">
+                                    🟣 Approach
+                                </button>
                             </li>
+
                         </ul>
+
+                        <!-- Tab Content -->
                         <div class="tab-content" id="myTabContent">
+
                             <div class="tab-pane fade show active" id="vision" role="tabpanel"
                                 aria-labelledby="vision-tab">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore nobis ducimus facere
-                                    repellat
-                                    harum, eius cupiditate, aliquam aut deserunt. Nemo illo ex impedit autem quod nobis
-                                    architecto, velit
-                                    quasi, aut voluptas porro natus. Fuga magnam perspiciatis fugit, placeat possimus
-                                    officia non ducimus
-                                    voluptatum aspernatur ad quidem neque accusantium repudiandae cupiditate nobis corporis,
-                                    cum facere
-                                    iusto, modi cumque consectetur saepe. Officia, molestiae tempore! Consequatur ipsa
-                                    consequuntur saepe
-                                    suscipit vero laudantium, mollitia, quaerat soluta nihil non tempore, quos dignissimos
-                                    quasi ab officiis
-                                    illum numquam quibusdam ducimus, veritatis ad. Quia, aliquid. Quaerat quos ducimus ipsam
-                                    amet minus
-                                    temporibus eos sequi alias hic nemo.</p>
+                                <p>We aspire to be our clients' first digital partner, providing innovative marketing
+                                    solutions based on creativity, data, and modern technologies to help brands grow and
+                                    build a strong and sustainable presence in the digital world.</p>
                             </div>
+
                             <div class="tab-pane fade" id="mission" role="tabpanel" aria-labelledby="mission-tab">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore nobis ducimus facere
-                                    repellat
-                                    harum, eius cupiditate, aliquam aut deserunt. Nemo illo ex impedit autem quod nobis
-                                    architecto, velit
-                                    quasi, aut voluptas porro natus. Fuga magnam perspiciatis fugit, placeat possimus
-                                    officia non ducimus
-                                    voluptatum aspernatur ad quidem neque accusantium repudiandae cupiditate nobis corporis,
-                                    cum facere
-                                    iusto, modi cumque consectetur saepe. Officia, molestiae tempore! Consequatur ipsa
-                                    consequuntur saepe
-                                    suscipit vero laudantium, mollitia, quaerat soluta nihil non tempore, quos dignissimos
-                                    quasi ab officiis
-                                    illum numquam quibusdam ducimus, veritatis ad. Quia, aliquid. Quaerat quos ducimus ipsam
-                                    amet minus
-                                    temporibus eos sequi alias hic nemo.</p>
+                                <p>Our mission is to empower companies to achieve their marketing goals through effective
+                                    digital strategies, including advertising campaign management, search engine
+                                    optimization, social media marketing, and content creation, with a focus on delivering
+                                    measurable results and real value to our clients.</p>
                             </div>
+
                             <div class="tab-pane fade" id="approch" role="tabpanel" aria-labelledby="approch-tab">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore nobis ducimus facere
-                                    repellat
-                                    harum, eius cupiditate, aliquam aut deserunt. Nemo illo ex impedit autem quod nobis
-                                    architecto, velit
-                                    quasi, aut voluptas porro natus. Fuga magnam perspiciatis fugit, placeat possimus
-                                    officia non ducimus
-                                    voluptatum aspernatur ad quidem neque accusantium repudiandae cupiditate nobis corporis,
-                                    cum facere
-                                    iusto, modi cumque consectetur saepe. Officia, molestiae tempore! Consequatur ipsa
-                                    consequuntur saepe
-                                    suscipit vero laudantium, mollitia, quaerat soluta nihil non tempore, quos dignissimos
-                                    quasi ab officiis
-                                    illum numquam quibusdam ducimus, veritatis ad. Quia, aliquid. Quaerat quos ducimus ipsam
-                                    amet minus
-                                    temporibus eos sequi alias hic nemo.</p>
+                                <p>Our work is based on a deep understanding of the nature of each business, market and
+                                    competitor analysis, and then designing customized marketing solutions based on data and
+                                    experience. We believe in continuous improvement, transparency in performance, and
+                                    building long-term relationships based on trust and mutual success.</p>
                             </div>
+
                         </div>
+
                     </div>
                 </div>
-            </div>
-        </div>
+
     </section>
 
     <section class="call-to-action bg-1 section-sm overlay">
@@ -271,7 +258,8 @@
                             <br> we’ve
                             achieved for other clients, and meet our highly experienced Team who just love to design.
                         </p>
-                        <a class="btn btn-main btn-solid-border text-dark" href="contact.html">Tell Us Your Story</a>
+                        <a class="btn btn-main btn-solid-border text-dark" href="{{ route('contact') }}">Tell Us Your
+                            Story</a>
                     </div>
                 </div>
             </div>

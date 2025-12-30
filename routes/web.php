@@ -13,12 +13,22 @@ use App\Http\Controllers\WebsiteController;
 |--------------------------------------------------------------------------
 */
 
+// THIS
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
-Route::get('/services',    [WebsiteController::class, 'services'])->name('website.services');
+Route::get('/services',    [WebsiteController::class, 'services'])->name('services');
 Route::get('/blog', [WebsiteController::class, 'blog'])->name('blog');
 Route::get('/about', [WebsiteController::class, 'about'])->name('about');
+Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
 Route::get('/post/{post}',   [WebsiteController::class, 'show'])->name('blog.single');
 
+// OR THIS
+// Route::prefix('/')->name('website.')->group(function () {
+//     Route::get('/', [WebsiteController::class, 'index'])->name('home');
+//     Route::get('/services',    [WebsiteController::class, 'services'])->name('website.services');
+//     Route::get('/blog', [WebsiteController::class, 'blog'])->name('blog');
+//     Route::get('/about', [WebsiteController::class, 'about'])->name('about');
+//     Route::get('/post/{post}',   [WebsiteController::class, 'show'])->name('blog.single');
+// });
 
 /*
 |--------------------------------------------------------------------------

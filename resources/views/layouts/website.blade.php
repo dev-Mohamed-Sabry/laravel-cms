@@ -81,29 +81,28 @@
                                     </ul>
                                 </li> --}}
                                 <li class="nav-item @@service"><a class="nav-link"
-                                        href="{{ route('website.services') }}">Service</a></li>
-                                <li class="nav-item @@service"><a class="nav-link"
-                                        href="{{ route('blog') }}">Blog</a></li>
-
-                                <li class="nav-item dropdown @@pages">
+                                        href="{{ route('services') }}">Service</a></li>
+                                <li class="nav-item @@service text-decoration-underline"><a
+                                        class="nav-link" href="{{ route('blog') }}">Blog</a></li>
+                                <li class="nav-item ">
+                                    <a class="nav-link " href="{{ route('about') }}">About
+                                        Us</a>
+                                </li>
+                                {{-- <li><a class="dropdown-item @@faq" href="faq.html">FAQ</a>
+                                </li> --}}
+                                {{-- <li class="nav-item dropdown @@pages">
                                     <a class="nav-link dropdown-toggle" href="#" id="dropdown05"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages
                                         <span class="ion-ios-arrow-down"></span></a>
                                     <ul class="dropdown-menu" aria-labelledby="dropdown05">
                                         <li><a class="dropdown-item @@about"
                                                 href="{{ route('about') }}">About Us</a></li>
-                                        <li><a class="dropdown-item @@comingSoon"
-                                                href="coming-soon.html">Coming Soon</a></li>
-                                        <li><a class="dropdown-item @@404" href="404.html">404
-                                                Page</a></li>
                                         <li><a class="dropdown-item @@faq" href="faq.html">FAQ</a>
                                         </li>
-                                        <li><a class="dropdown-item @@pricing"
-                                                href="pricing.html">Pricing Table</a></li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item @@contact"><a class="nav-link"
-                                        href="contact.html">Contact</a></li>
+                                        href="{{ route('contact') }}">Contact Us</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -123,11 +122,9 @@
                 <div class="col-md-12">
                     <div class="footer-manu">
                         <ul>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="contact.html">Contact us</a></li>
-                            <li><a href="service.html">How it works</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
+                            <li><a href="{{ route('about') }}">About Us</a></li>
+                            <li><a href="{{ route('contact') }}">Contact us</a></li>
+                            <li><a href="{{ route('services') }}">Services</a></li>
                         </ul>
                     </div>
                     <p class="copyright mb-0">Copyright

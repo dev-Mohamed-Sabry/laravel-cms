@@ -127,7 +127,8 @@
                             <br> we’ve
                             achieved for other clients, and meet our highly experienced Team who just love to design.
                         </p>
-                        <a class="btn btn-main btn-solid-border text-dark" href="contact.html">Tell Us Your Story</a>
+                        <a class="btn btn-main btn-solid-border text-dark" href="{{ route('contact') }}">Tell Us Your
+                            Story</a>
                     </div>
                 </div>
             </div>

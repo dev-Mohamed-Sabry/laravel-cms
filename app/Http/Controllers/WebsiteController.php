@@ -31,6 +31,11 @@ class WebsiteController extends Controller
         return view('website.about');
     }
 
+    public function contact()
+    {
+        return view('website.contact');
+    }
+
     public function show(Post $post)
     {
         return view('website.blog.single', ['post' => $post]);

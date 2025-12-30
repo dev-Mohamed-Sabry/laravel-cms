@@ -484,18 +484,19 @@ input[type=tel]:focus {
   margin-right: 5px;
 }
 
-.tabCommon .nav-tabs li a.active {
+.tabCommon .nav-tabs li button.active {
   background-color: #655E7A;
   border: 1px solid #655E7A;
   color: #ffffff;
 }
 
-.tabCommon .nav-tabs a {
+.tabCommon .nav-tabs button {
   border-radius: 0;
   background: #f9f9f9;
+  color: darkgray;
 }
 
-.tabCommon .nav-tabs a:hover {
+.tabCommon .nav-tabs button:hover {
   border: 1px solid transparent;
   background: #655E7A;
   color: #fff;
