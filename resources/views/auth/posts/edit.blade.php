@@ -2,7 +2,7 @@
 
 
 
-@section('title', 'Create Post')
+@section('title', 'Edit Post')
 
 @section('styles')
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
@@ -34,7 +34,7 @@
                     <li class="breadcrumb-item ">
                         <a href="{{ route('posts.index') }}" class="text-decoration-none">Posts</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Create Post</li>
+                    <li class="breadcrumb-item active" aria-current="page">Update Post</li>
                 </ol>
             </nav>
         </div>
@@ -65,9 +65,10 @@
                             </div>
                         @endif
 
-                        <form class="forms-sample" method="post" action="{{ route('posts.store') }} "
+                        <form class="forms-sample" method="post" action="{{ route('posts.update', $post->id) }} "
                             enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <!-- Title -->
                             <div class="col-md-10 mb-3">
                                 <label for="title" class="form-label fw-semibold">Title <span
@@ -123,7 +124,7 @@
                                 </small>
                             </div>
 
-                            <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                            <button type="submit" class="btn btn-gradient-primary me-2">Update</button>
 
                         </form>
                     </div>

@@ -15,7 +15,8 @@
     <div class="main-panel  row w-100 p-0 m-0">
         <div class="content-wrapper row w-100 m-0">
             <div class="page-header">
-                <h3 class="page-title"> Posts </h3>
+                <h3 class="page-title"> Posts (By Latest)
+                </h3>
 
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -82,7 +83,8 @@
                                                     class="btn btn-success btn-xs"><i class="fa-solid fa-eye"></i></a>
 
                                                 {{-- Edit --}}
-                                                <a href="" type="button" class="btn btn-info btn-xs"><i
+                                                <a href="{{ route('posts.edit', $post->id) }} " type="button"
+                                                    class="btn btn-info btn-xs"><i
                                                         class="fa-solid fa-pen-to-square"></i></a>
 
                                                 {{-- Delete --}}

@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['gallery', 'category'])->get();
+        $posts = Post::with(['gallery', 'category'])->latest()->get();
         // return $posts;
         return view(
             'auth.posts.index',
@@ -99,17 +99,53 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Post $post)
     {
-        //
+        $categories = Category::all('id', 'name');
+        return view('auth.posts.edit', ['post' => $post, 'categories' => $categories]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StorePostRequest $request, Post $post)
     {
-        //
+        $data = $request->validated();
+        //Clean description field from harmful code if any exists
+        $data['description'] = Purifier::clean($data['description']);
+
+        try {
+            DB::beginTransaction();
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $fileName = time() . '-' . $file->getClientOriginalName();
+                $file->move(public_path('uploads/posts'), $fileName);
+                $data['file'] = $fileName;
+
+                if ($post->gallery) {
+                    // ✅ Update existing image
+                    $post->gallery->update([
+                        'image' => $fileName,
+                    ]);
+                } else {
+                    // ✅ Create new gallery
+                    $gallery = Gallery::create([
+                        'image' => $fileName
+                    ]);
+                }
+                $data['gallery_id'] = $gallery->id;
+                $data['category_id'] = $request->category;
+            }
+            // ✅ Update post data
+            // dd($post);
+            $post->update($data);
+            DB::commit();
+
+            return redirect()->route('posts.index')->with('success', 'Post Updated Successfully');
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        }
     }
 
     /**
