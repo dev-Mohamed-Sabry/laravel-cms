@@ -7,9 +7,11 @@ use App\Http\Requests\Auth\Post\StorePostRequest;
 use App\Models\Category;
 use App\Models\Gallery;
 use App\Models\Post;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Mews\Purifier\Facades\Purifier;
+
 
 class PostController extends Controller
 {
@@ -108,40 +110,49 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function update(StorePostRequest $request, Post $post)
     {
         $data = $request->validated();
-        //Clean description field from harmful code if any exists
+
+        // تنظيف الوصف
         $data['description'] = Purifier::clean($data['description']);
+        $data['category_id'] = $request->category;
+
+        DB::beginTransaction();
 
         try {
-            DB::beginTransaction();
+
             if ($request->hasFile('file')) {
+
                 $file = $request->file('file');
                 $fileName = time() . '-' . $file->getClientOriginalName();
                 $file->move(public_path('uploads/posts'), $fileName);
-                $data['file'] = $fileName;
 
+                // 🔴 حذف الصورة القديمة إن وجدت
+                if ($post->gallery && File::exists(public_path('uploads/posts/' . $post->gallery->image))) {
+                    File::delete(public_path('uploads/posts/' . $post->gallery->image));
+                }
+
+
+                // 🟢 تحديث أو إنشاء Gallery
                 if ($post->gallery) {
-                    // ✅ Update existing image
-                    $post->gallery->update([
-                        'image' => $fileName,
-                    ]);
+                    $post->gallery->update(['image' => $fileName]);
+                    $gallery = $post->gallery;
                 } else {
-                    // ✅ Create new gallery
-                    $gallery = Gallery::create([
-                        'image' => $fileName
-                    ]);
+                    $gallery = Gallery::create(['image' => $fileName]);
                 }
                 $data['gallery_id'] = $gallery->id;
-                $data['category_id'] = $request->category;
             }
-            // ✅ Update post data
-            // dd($post);
+
+            // تحديث البوست
             $post->update($data);
+
             DB::commit();
 
-            return redirect()->route('posts.index')->with('success', 'Post Updated Successfully');
+            return redirect()
+                ->route('posts.index')
+                ->with('success', 'Post Updated Successfully');
         } catch (\Throwable $th) {
             DB::rollBack();
             throw $th;

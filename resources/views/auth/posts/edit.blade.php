@@ -74,14 +74,14 @@
                                 <label for="title" class="form-label fw-semibold">Title <span
                                         style="color: red">*</span></label>
                                 <input type="text" name="title" id="title" class="form-control form-control-lg"
-                                    placeholder="Enter Title" value="{{ old('title') }}" required>
+                                    placeholder="Enter Title" value="{{ $post?->title ?? old('title') }}" required>
                             </div>
 
                             <!-- Description -->
                             <div class="col-md-10 mb-3 bg-none">
                                 <label for="summernote" class="form-label fw-semibold">Description <span
                                         style="color: red">*</span></label>
-                                <textarea id="summernote" name="description" class="form-control" rows="6">{{ old('description') }}</textarea>
+                                <textarea id="summernote" name="description" class="form-control" rows="6">{{ $post?->description ?? old('description') }}</textarea>
                             </div>
 
                             <!-- Category -->
@@ -94,7 +94,7 @@
 
                                     @if (count($categories) > 0)
                                         @foreach ($categories as $category)
-                                            <option @selected(old('category') == $category->id) value="{{ $category->id }}">
+                                            <option @selected(($post?->category->id ?? old('category')) == $category->id) value="{{ $category->id }}">
                                                 {{ $category->name }}</option>
                                         @endforeach
                                     @endif
@@ -107,8 +107,8 @@
                                         style="color: red">*</span></label>
                                 <select required name="is_publish" id="is_publish" class="form-select">
                                     <option disabled @selected(old('is_publish') === null)>Choose Status</option>
-                                    <option @selected(old('is_publish') == 1) value="1">🟢 Publish</option>
-                                    <option @selected(old('is_publish') == 0) value="0">🟡 Draft</option>
+                                    <option @selected(($post?->is_publish ?? old('is_publish')) == 1) value="1">🟢 Publish</option>
+                                    <option @selected(($post?->is_publish ?? old('is_publish')) == 0) value="0">🟡 Draft</option>
                                 </select>
                             </div>
 
