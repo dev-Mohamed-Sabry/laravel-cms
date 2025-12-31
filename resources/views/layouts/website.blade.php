@@ -81,7 +81,7 @@
                                     </ul>
                                 </li> --}}
                                 <li class="nav-item @@service"><a class="nav-link"
-                                        href="{{ route('services') }}">Service</a></li>
+                                        href="{{ route('services') }}">Services</a></li>
                                 <li class="nav-item @@service text-decoration-underline"><a
                                         class="nav-link" href="{{ route('blog') }}">Blog</a></li>
                                 <li class="nav-item ">

@@ -33,7 +33,8 @@
                             velit nulla culpa modi quis iste tempora non, suscipit repellendus labore voluptatem dicta amet?
                             Lorem ipsum
                             dolor sit amet, consectetur adipisicing elit. Provident, neque!</p>
-                        <a href="{{ asset('storage/portfolio.pdf') }}" class="btn btn-small">Download Company
+                        <a href="{{ asset('storage/portfolio.pdf') }}" target="_blank" class="btn btn-small">Download
+                            Company
                             Profile</a>
                     </div>
                 </div>
