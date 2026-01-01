@@ -162,9 +162,7 @@
     <script src="{{ asset('assets/website/plugins/shuffle/shuffle.min.js') }}"></script>
     <script src="{{ asset('assets/website/plugins/SyoTimer/jquery.syotimer.min.js') }}"></script>
     <!-- Google Map -->
-    {{-- <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
-    <script src="{{ asset('assets/website/plugins/google-map/map.js') }}"></script> --}}
+
 
     <script src="{{ asset('assets/website/js/script.js') }}"></script>
 
