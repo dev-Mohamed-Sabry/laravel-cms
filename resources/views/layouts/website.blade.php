@@ -7,7 +7,7 @@
     <!-- Basic Page Needs
   ================================================== -->
     <meta charset="utf-8">
-    <title>Space CMS</title>
+    <title> @yield ('title') </title>
 
     <!-- Mobile Specific Metas
   ================================================== -->

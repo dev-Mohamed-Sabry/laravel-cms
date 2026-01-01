@@ -1,5 +1,8 @@
 @extends('layouts.auth')
 
+@section('title', 'Posts')
+
+
 @section('styles')
     {{-- Font Awesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
@@ -10,6 +13,8 @@
     {{-- {DataTable CDN} --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.6/css/dataTables.dataTables.min.css">
 @endsection
+
+
 
 @section('content')
     <div class="main-panel  row w-100 p-0 m-0">

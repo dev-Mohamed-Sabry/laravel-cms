@@ -1,5 +1,8 @@
 @extends('layouts.website')
 
+@section('title', 'Blog')
+
+
 @section('content')
     <section class="page-title bg-2">
         <div class="container">
@@ -45,7 +48,7 @@
                                 </ul>
                             </div>
                             <div class="post-content">
-                                <p>{{ Str::limit(strip_tags($post->description), 200, '...') }}</p>
+                                <p>{{ Str::limit(strip_tags($post->description), 50, '...') }}</p>
                                 <a href="{{ route('blog.single', $post->id) }}" class="btn btn-main">Read More</a>
                             </div>
                         </div>
@@ -90,7 +93,7 @@
                                                         href={{ route('blog.single', $latestPost->id) }}>{{ $latestPost->title }}</a>
                                                 </h4>
                                                 <p>{{ $latestPost->created_at->format('Y-M-d H:i') }}</p>
-                                                <p>{{ Str::limit(strip_tags($latestPost->description), 50, '...') }}</p>
+                                                <p>{{ Str::limit(strip_tags($latestPost->description), 30, '...') }}</p>
                                             </div>
                                         </div>
                                     </div>

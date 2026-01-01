@@ -1,5 +1,8 @@
 @extends('layouts.website')
 
+@section('title', 'Home')
+
+
 @section('content')
     <!-- Slider Start -->
     <section class="slider">

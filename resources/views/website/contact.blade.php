@@ -1,5 +1,8 @@
 @extends('layouts.website')
 
+@section('title', 'Contact Us')
+
+
 @section('content')
     <section class="page-title bg-2">
         <div class="container">
