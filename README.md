@@ -245,4 +245,11 @@ Laravel Developer
 
 This project is open-source and free to use for learning purposes.
 
+---
+
+## ⚙️ **Admin Login**
+http://127.0.0.1:8000/login
+
+* Email: a@a.com
+* Password: 12345678
 
